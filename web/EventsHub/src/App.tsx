@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react"
+import { List, ListItem, ListItemText, Typography } from "@mui/material";
+import { Fragment, useEffect, useState } from "react"
 
 function App() {
 
@@ -14,12 +15,17 @@ function App() {
 
   return (
     <>
-      <h3 style={{ color: 'red' }}>EventsHub</h3>
-      <ul>
-        {activities?.map((act: Activity) => (
-          <li key={act.id}>{act.title}</li>
-        ))}
-      </ul>
+      <Fragment>
+        <Typography variant="h3">EventsHub</Typography>
+        <List>
+          {activities?.map((act: Activity) => (
+            <ListItem key={act.id}>
+              <ListItemText primary={act.title} secondary={act.description} />
+            </ListItem>
+          ))}
+        </List>
+      </Fragment>
+
     </>
   )
 }
