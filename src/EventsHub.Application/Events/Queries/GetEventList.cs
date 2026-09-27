@@ -7,11 +7,11 @@ namespace EventsHub.Application.Events.Queries;
 
 public class GetEventList
 {
-    public class Query : IRequest<List<Event>> { }
+    public class Query : IRequest<IReadOnlyList<Event>> { }
 
-    public class Handler(AppDbContext context) : IRequestHandler<Query, List<Event>>
+    public class Handler(AppDbContext context) : IRequestHandler<Query, IReadOnlyList<Event>>
     {
-        public async Task<List<Event>> Handle(Query request, CancellationToken cancellationToken)
+        public async Task<IReadOnlyList<Event>> Handle(Query request, CancellationToken cancellationToken)
         {
             return await context.Events.ToListAsync(cancellationToken);
         }
