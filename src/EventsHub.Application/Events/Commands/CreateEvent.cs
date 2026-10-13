@@ -9,7 +9,6 @@ public class CreateEvent
     public class Command : IRequest<string>
     {
         public required Event Event { get; set; }
-
     }
 
     public class Handler(AppDbContext context) : IRequestHandler<Command, string>
@@ -20,13 +19,5 @@ public class CreateEvent
             await context.SaveChangesAsync(cancellationToken);
             return request.Event.Id;
         }
-
-
-    }
-
-    [HttpPost]
-    public async Task<ActionResult<string>> CreateEventAsync(Event @event)
-    {
-        return await Mediator.Send(new CreateEvent.Command { Event = @event });
     }
 }

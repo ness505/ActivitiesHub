@@ -1,5 +1,4 @@
 using EventsHub.Domain;
-using EventsHub.Persistence;
 
 namespace EventsHub.Persistence;
 
@@ -114,6 +113,7 @@ public static class DbInitializer
         };
 
         context.Events.AddRange(events);
+
         await context.SaveChangesAsync();
     }
 }

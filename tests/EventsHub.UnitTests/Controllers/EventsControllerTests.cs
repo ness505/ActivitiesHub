@@ -38,7 +38,7 @@ public class EventsControllerTests
         // Assert
         Assert.That(result.Value, Is.Not.Null);
         Assert.Multiple(() =>
-        {<
+        {
             Assert.That(result.Value.Id, Is.EqualTo(existing.Id));
             Assert.That(result.Value.Title, Is.EqualTo(existing.Title));
         });
@@ -62,4 +62,3 @@ public class EventsControllerTests
         });
     }
 }
- 
